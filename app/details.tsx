@@ -11,7 +11,7 @@ export default function Details() {
 
   return (
     <Container>
-      <Stack.Screen options={{ title: 'Details'}} />
+      <Stack.Screen options={{ title: 'Details' }} />
       <Main>
         <YStack>
           <Title>Details</Title>
