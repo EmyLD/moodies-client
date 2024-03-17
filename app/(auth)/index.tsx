@@ -1,13 +1,17 @@
-import React from 'react';
-import { Button, Text } from 'tamagui';
-import { Container } from '~/tamagui.config';
-import { Link } from 'expo-router';
+import { Button } from 'tamagui';
+import { useRouter } from 'expo-router';
 
 const index = () => {
+  const router = useRouter();
+
+  const goToLogin = () => {
+    router.replace('/login');
+  };
+
   return (
-    <Link replace href="./login" style={{ paddingTop: 70 }}>
-      Log
-    </Link>
+    <Button size="$4" width={'$12'} onPress={goToLogin}>
+      Log in
+    </Button>
   );
 };
 
