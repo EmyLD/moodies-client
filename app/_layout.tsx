@@ -21,7 +21,10 @@ export default function Layout() {
 
   return (
     <TamaguiProvider config={config}>
-      <Stack />
+      <Stack>
+        <Stack.Screen name="index" options={{ title: '' }} />
+        <Stack.Screen name="details" />
+      </Stack>
     </TamaguiProvider>
   );
 }
