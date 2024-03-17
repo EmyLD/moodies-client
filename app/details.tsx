@@ -1,13 +1,10 @@
-import { Feather } from '@expo/vector-icons';
-import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { Button, Text, YStack } from 'tamagui';
-
+import { YStack } from 'tamagui';
 import { Container, Main, Subtitle, Title } from '../tamagui.config';
 
 export default function Details() {
   const { name } = useLocalSearchParams();
-  const router = useRouter();
 
   return (
     <Container>
