@@ -1,5 +1,3 @@
-import { View, Text } from 'react-native';
-import React from 'react';
 import { Stack } from 'expo-router';
 
 const _layout = () => {
@@ -7,6 +5,7 @@ const _layout = () => {
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: true }} />
       <Stack.Screen name="login" options={{ headerShown: true, headerTitle: 'Login' }} />
+      <Stack.Screen name="register" options={{ headerShown: true, headerTitle: 'Register' }} />
     </Stack>
   );
 };

@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const goToRegister = () => {
-    router.push('/register');
+    router.push('./register');
   };
 
   return (
@@ -42,7 +42,7 @@ const Login = () => {
 
       <XStack paddingHorizontal={'$4'} paddingVertical={'$4'}>
         <Text>
-          Not an account yet ?{' '}
+          Not an account yet ?
           <Text textDecorationLine={'underline'} onPress={goToRegister}>
             Sign Up Here
           </Text>

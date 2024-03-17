@@ -1,14 +1,13 @@
-import { View, Text } from 'react-native';
-import React from 'react';
 import { useRouter } from 'expo-router';
+import { Text } from 'tamagui';
 
-const register = () => {
+const Register = () => {
   const router = useRouter();
   return (
-    <View>
+    <Text>
       <Text onPress={() => router.back()}>Oopsie, i have an account</Text>
-    </View>
+    </Text>
   );
 };
 
-export default register;
+export default Register;
