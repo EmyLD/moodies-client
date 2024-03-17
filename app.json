@@ -1,19 +1,22 @@
 {
   "expo": {
-    "name": "frontend",
-    "slug": "frontend",
+    "name": "movies",
+    "slug": "movies",
     "version": "1.0.0",
-    "scheme": "frontend",
+
+    "scheme": "movies",
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router", "expo-font"],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true,
+
       "tsconfigPaths": true
     },
+
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
