@@ -1,12 +1,12 @@
 import { useRouter } from 'expo-router';
-import { Text } from 'tamagui';
+import { Text, YStack } from 'tamagui';
 
 const Register = () => {
   const router = useRouter();
   return (
-    <Text>
+    <YStack flex={1} alignItems={'center'} justifyContent={'center'}>
       <Text onPress={() => router.back()}>Oopsie, i have an account</Text>
-    </Text>
+    </YStack>
   );
 };
 

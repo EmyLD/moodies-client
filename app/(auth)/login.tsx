@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { H1, Input, XStack, YStack, Text } from 'tamagui';
+import { Button, H1, Input, Text, XStack, YStack } from 'tamagui';
 import { useRouter } from 'expo-router';
 
 const Login = () => {
@@ -8,12 +8,13 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const goToRegister = () => {
-    router.push('./register');
+    console.log('go to register');
+    router.push('/register')
   };
 
   return (
     <YStack flex={1} justifyContent={'center'} gap={'$4'}>
-      <H1 textAlign="left" color={'black'}>
+      <H1 textAlign="left" color={'black'} onPress={goToRegister}>
         Welcome back.
       </H1>
 
@@ -41,12 +42,19 @@ const Login = () => {
       </XStack>
 
       <XStack paddingHorizontal={'$4'} paddingVertical={'$4'}>
-        <Text>
-          Not an account yet ?
-          <Text textDecorationLine={'underline'} onPress={goToRegister}>
-            Sign Up Here
+        <Button unstyled
+                onPress={goToRegister}
+        >
+          <Text>
+            Not an account yet ?{' '}
+            <Text textDecorationLine={'underline'}
+                  width={'100%'}
+                  height={'$3'}
+            >
+              Sign Up Here
+            </Text>
           </Text>
-        </Text>
+        </Button>
       </XStack>
     </YStack>
   );
