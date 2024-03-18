@@ -7,7 +7,6 @@ import config from '../tamagui.config';
 
 export default function Layout() {
   const [loaded] = useFonts({
-    Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     Nunito: require('../assets/fonts/Nunito-Light.ttf'),
   });
 

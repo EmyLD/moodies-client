@@ -3,18 +3,6 @@ import { Stack, SplashScreen } from 'expo-router';
 import { useEffect } from 'react';
 
 const _layout = () => {
-  const [loaded] = useFonts({
-    Nunito: require('@tamagui/font-inter/otf/Nunito-Light.otf'),
-    Handlee: require('@tamagui/font-inter/otf/Handlee-Regular.otf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) return null;
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
