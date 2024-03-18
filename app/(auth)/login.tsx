@@ -27,6 +27,7 @@ const Login = () => {
             size={`$4`}
             marginHorizontal={'$4'}
             placeholder={`Email`}
+            placeholderTextColor={'#fff'}
             value={email}
             backgroundColor={'#3CB17E'}
             opacity={0.5}
@@ -42,6 +43,7 @@ const Login = () => {
             size={`$4`}
             marginHorizontal={'$4'}
             placeholder={`Password`}
+            placeholderTextColor={'#fff'}
             secureTextEntry={true}
             value={password}
             backgroundColor={'#3CB17E'}
