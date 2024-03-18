@@ -3,7 +3,7 @@ import { createInterFont } from '@tamagui/font-inter';
 import { createMedia } from '@tamagui/react-native-media-driver';
 import { shorthands } from '@tamagui/shorthands';
 import { themes, tokens } from '@tamagui/themes';
-import { createTamagui, styled, SizableText, H1, YStack } from 'tamagui';
+import { createTamagui, styled, SizableText, H1, YStack, Input } from 'tamagui';
 
 const animations = createAnimations({
   bouncy: {
@@ -81,27 +81,37 @@ export const Main = styled(YStack, {
 });
 
 export const Title = styled(H1, {
+  style: { fontFamily: 'Nunito' },
   color: '#000',
   size: '$12',
 });
 
 export const Subtitle = styled(SizableText, {
+  style: { fontFamily: 'Nunito' },
   color: '#38434D',
-  size: '$9',
+  size: '$7',
 });
 
 // Mon components
+export const MyInput = styled(Input, {
+  style: { fontFamily: 'Nunito' },
+  backgroundColor: '#3CB17E',
+  borderColor: '#3CB17E',
+  color: '#fff',
+  opacity: 0.4,
+});
 
 export const Logo = styled(H1, {
   backgroundColor: '#DD6677',
   padding: 5,
-
+  style: { fontFamily: 'Nunito' },
   borderRadius: 50,
 });
 
 export const Button = styled(YStack, {
   alignItems: 'center',
-  backgroundColor: '#6BDEAC',
+  style: { fontFamily: 'Nunito' },
+  backgroundColor: '#3CB17E',
   borderRadius: 15,
   hoverStyle: {
     backgroundColor: '#5a5fcf',
@@ -121,6 +131,7 @@ export const Button = styled(YStack, {
 export const ButtonText = styled(SizableText, {
   color: '#FFFFFF',
   fontSize: 16,
+  style: { fontFamily: 'Nunito' },
   fontWeight: '400',
   textAlign: 'center',
 });
