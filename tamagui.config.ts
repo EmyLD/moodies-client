@@ -25,7 +25,6 @@ const animations = createAnimations({
   },
 });
 
-
 const headingFont = createInterFont({
   size: {
     6: 15,
@@ -56,7 +55,7 @@ const headingFont = createInterFont({
   face: {
     700: { normal: 'InterBold' },
   },
-})
+});
 
 const bodyFont = createInterFont(
   {
@@ -68,7 +67,7 @@ const bodyFont = createInterFont(
     sizeSize: (size) => Math.round(size * 1.1),
     sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
   }
-)
+);
 
 export const Container = styled(YStack, {
   flex: 1,
@@ -91,10 +90,19 @@ export const Subtitle = styled(SizableText, {
   size: '$9',
 });
 
+// Mon components
+
+export const Logo = styled(H1, {
+  backgroundColor: '#DD6677',
+  padding: 5,
+
+  borderRadius: 50,
+});
+
 export const Button = styled(YStack, {
   alignItems: 'center',
-  backgroundColor: '#6366F1',
-  borderRadius: 28,
+  backgroundColor: '#6BDEAC',
+  borderRadius: 15,
   hoverStyle: {
     backgroundColor: '#5a5fcf',
   },
@@ -113,7 +121,7 @@ export const Button = styled(YStack, {
 export const ButtonText = styled(SizableText, {
   color: '#FFFFFF',
   fontSize: 16,
-  fontWeight: '600',
+  fontWeight: '400',
   textAlign: 'center',
 });
 
