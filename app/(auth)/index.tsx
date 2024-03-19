@@ -1,7 +1,5 @@
-import { XStack, YStack, Text, Image } from 'tamagui';
 import { useRouter } from 'expo-router';
-import { Subtitle, Logo, Button, ButtonText, Main } from '~/tamagui.config';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, View, Text, Pressable, StyleSheet } from 'react-native';
 
 const index = () => {
   const router = useRouter();
@@ -13,27 +11,34 @@ const index = () => {
   const image = require('../../assets/img.png');
 
   return (
-    <Main>
-      <ImageBackground source={image} resizeMode="cover">
-        <XStack>
-          <Logo marginTop={'$20'}>Moodies</Logo>
-        </XStack>
-        <XStack>
-          <Subtitle>Write about how you feel, share....</Subtitle>
-        </XStack>
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, alignSelf: 'center' }}>
+        <Text style={styles.logo}>Moodies</Text>
+      </View>
+      <View style={{ flex: 1 }}>
+        <Text>Write about how you feel, share....</Text>
+        <Text> Others decided to take this trip, how is it gonna be</Text>
+        <Text>for you ?</Text>
+      </View>
 
-        <YStack>
-          <Text marginBottom={50}>
-            Others decided to take this trip, how is it gonna be{' '}
-            <Text textDecorationLine={'underline'}>for you</Text> ? 🧙‍♂️
-          </Text>
-          <Button onPress={goToLogin}>
-            <ButtonText>Start your own journey...</ButtonText>
-          </Button>
-        </YStack>
+      <ImageBackground source={image} style={{ flex: 2 }}>
+        <Pressable onPress={goToLogin}>
+          <Text>Start writting....</Text>
+        </Pressable>
       </ImageBackground>
-    </Main>
+    </View>
   );
 };
+const styles = StyleSheet.create({
+  logo: {
+    fontFamily: 'Nunito',
+    marginTop: '35%',
+    fontSize: 32,
+    width: '40%',
+    padding: 10,
+    color: 'white',
+    backgroundColor: '#DD6677',
+  },
+});
 
 export default index;
