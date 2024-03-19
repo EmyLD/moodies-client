@@ -15,7 +15,15 @@ const _layout = () => {
           headerStyle: { backgroundColor: '#DD6677' },
         }}
       />
-      <Stack.Screen name="register" options={{ headerShown: true, headerTitle: 'Register' }} />
+      <Stack.Screen
+        name="register"
+        options={{
+          headerShown: true,
+          headerTitle: 'Register',
+          headerTintColor: '#fff',
+          headerStyle: { backgroundColor: '#DD6677' },
+        }}
+      />
     </Stack>
   );
 };
