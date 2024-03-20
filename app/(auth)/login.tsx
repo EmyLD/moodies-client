@@ -33,7 +33,7 @@ const Login = () => {
           params: { id: result.userId, username: result.username },
         });
       } else {
-        console.log('ta race');
+        console.log('Wrong password');
       }
 
       // if (result) {
