@@ -15,28 +15,55 @@ const Login = () => {
       password: password,
     };
 
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    };
     try {
-      const response = await fetch('https://86a7-91-169-227-245.ngrok-free.app/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
+      const response = await fetch(
+        'https://a648-91-169-227-245.ngrok-free.app/users/login',
+        requestOptions
+      );
       const result = await response.json();
 
-      console.log(result.username);
-
-      if (result) {
+      if (result.message == 'Mot de passe ok') {
         router.push({
           pathname: '/profil',
           params: { id: result.userId, username: result.username },
         });
+      } else {
+        console.log('ta race');
       }
+
+      // if (result) {
+      //   router.push({
+      //     pathname: '/profil',
+      //     params: { id: result.userId, username: result.username },
+      //   });
+      // }
     } catch (error) {
-      console.error('Erreeur :', error);
+      console.warn(error);
     }
+
+    // try {
+    //   console.log('coucou');
+    //   const response = await fetch(
+    //     'https://a648-91-169-227-245.ngrok-free.app/users/login',
+    //     requestOptions
+    //   );
+
+    //   const result = await response.json();
+
+    //   if (result) {
+    //     router.push({
+    //       pathname: '/profil',
+    //       params: { id: result.userId, username: result.username },
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.error('Erreeur :', error);
+    // }
   };
 
   const goToRegister = () => {
