@@ -86,7 +86,6 @@ export const Title = styled(H1, {
   size: '$12',
 });
 
-
 export const Subtitle = styled(SizableText, {
   style: { fontFamily: 'Nunito' },
   color: '#38434D',
@@ -101,6 +100,7 @@ export const MyInput = styled(Input, {
   color: '#fff',
   placeholderTextColor: '#fff',
   opacity: 0.4,
+  autoComplete: 'off',
 });
 
 export const Logo = styled(H1, {

@@ -3,7 +3,8 @@ import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
 
 const profil = () => {
-  const { username } = useLocalSearchParams();
+  const { username, id } = useLocalSearchParams();
+  console.log(id, username);
   return (
     <View>
       <Text>Coucou {username}</Text>
