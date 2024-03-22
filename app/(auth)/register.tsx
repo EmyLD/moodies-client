@@ -1,71 +1,42 @@
 import { MyInput, Container, Title } from '~/tamagui.config';
 import { YStack, XStack, Button, ButtonText, Text } from 'tamagui';
-import { SetStateAction, useEffect, useState } from 'react';
+import { useState } from 'react';
+
 import { useRouter } from 'expo-router';
+import { Alert } from 'react-native';
 
 const Register = () => {
-  const [email, setEmail] = useState(' ');
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState(' ');
-  const [errors, setErrors] = useState({});
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isUsernameValid, setIsUsernameValid] = useState(false);
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const REG_EMAIL = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
+  const REG_USERNAME = /^[a-z]+$/i;
 
   const router = useRouter();
-
-  // interface Input {
-  //   email: String;
-  //   username: String;
-  //   password: String;
-  // }
-
-  // const validateInput = (email: Input, username: Input, password: Input) => {
-  //   console.log(email, username, password);
-  // };
 
   const toSignIn = () => {
     console.log('go to register');
     router.replace('/login');
   };
 
-  const onchangeUsername = (e: SetStateAction<string>) => {
-    const REG_USERNAME = /^[a-z]+$/i;
-    setUsername(e);
-    if (e !== '' && e !== ' ' && e.length > 4) {
-      REG_USERNAME.test(username) ? setIsUsernameValid(true) : setIsUsernameValid(false);
+  const checkPwd = () => {
+    while (password !== confirmPassword) {
+      return false;
     }
+    return true;
   };
 
-  const onchangeEmail = (e: SetStateAction<string>) => {
-    const REG_EMAIL = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
-    setEmail(e);
-    if (e !== '' && e !== ' ' && e.length > 4) {
-      REG_EMAIL.test(email) ? setIsEmailValid(true) : setIsEmailValid(false);
-    }
-  };
-
-  function onChangePassword(e: SetStateAction<string>) {
-    const REG_PASSWORD = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
-    setPassword(e);
-    if (e !== '' && e !== ' ' && e.length > 4) {
-      REG_PASSWORD.test(password) ? setIsPasswordValid(true) : setIsPasswordValid(false);
-    }
-  }
-
-  const handleSubmit = () => {
-    if (isEmailValid && isPasswordValid && isUsernameValid) {
-      console.log(
-        `Email : ${isEmailValid} // Pwd : ${isPasswordValid} // Username : ${isUsernameValid}`
-      );
-
-      console.log('tutti ok');
+  const handleRegister = () => {
+    if (!username || !email || !password || !confirmPassword) {
+      Alert.alert('Attention', 'Veuillez remplir tous les champs.');
+      if (!checkPwd) {
+        Alert.alert('Attention', 'Les mots de passe ne correspondent pas.');
+        return;
+      }
     } else {
-      console.log(
-        `Email : ${isEmailValid} // Pwd : ${isPasswordValid} // Username : ${isUsernameValid}`
-      );
-
-      console.log('not ok');
+      if (!REG_EMAIL.test(email)) {
+      }
     }
   };
 
@@ -82,7 +53,7 @@ const Register = () => {
             marginHorizontal={'$4'}
             placeholder={`Username`}
             value={username}
-            onChangeText={onchangeUsername}
+            onChangeText={(text) => setUsername(text)}
           />
         </XStack>
         <XStack>
@@ -92,7 +63,7 @@ const Register = () => {
             marginHorizontal={'$4'}
             placeholder={`Email`}
             value={email}
-            onChangeText={onchangeEmail}
+            onChangeText={(text) => setEmail(text)}
           />
         </XStack>
         <XStack>
@@ -103,11 +74,22 @@ const Register = () => {
             placeholder={`Password`}
             secureTextEntry={true}
             value={password}
-            onChangeText={onChangePassword}
+            onChangeText={(text) => setPassword(text)}
           />
         </XStack>
         <XStack>
-          <Button backgroundColor={'#3CB17E'} onPress={handleSubmit}>
+          <MyInput
+            flex={1}
+            size={`$4`}
+            marginHorizontal={'$4'}
+            placeholder={`Confirm password`}
+            secureTextEntry={true}
+            value={confirmPassword}
+            onChangeText={(text) => setConfirmPassword(text)}
+          />
+        </XStack>
+        <XStack>
+          <Button backgroundColor={'#3CB17E'} onPress={handleRegister}>
             <ButtonText style={{ fontFamily: 'Nunito' }}>Register</ButtonText>
           </Button>
         </XStack>

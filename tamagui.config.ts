@@ -100,7 +100,6 @@ export const MyInput = styled(Input, {
   color: '#fff',
   placeholderTextColor: '#fff',
   opacity: 0.4,
-  autoComplete: 'off',
 });
 
 export const Logo = styled(H1, {

@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import { ImageBackground, View, Text, Pressable, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const index = () => {
   const router = useRouter();
@@ -13,25 +14,29 @@ const index = () => {
   const image = require('../../assets/img.png');
 
   return (
-    <View style={{ flex: 2 }}>
-      <View style={{ flex: 1, alignSelf: 'center' }}>
-        <Text style={styles.logo}>Moodies</Text>
-      </View>
-      <View style={{ flex: 1 }}>
-        <Text style={styles.paragraph}>
-          Write about how you feel, share... Others decided to take this trip ! How is it gonna be
-          <Text style={styles.underline}> for you ? 🧙‍♂️</Text>
-        </Text>
-      </View>
+    <SafeAreaView>
+      <View style={{ flex: 2 }}>
+        <View style={{ flex: 1, alignSelf: 'center' }}>
+          <Text style={styles.logo}>Moodies</Text>
+        </View>
 
-      <ImageBackground source={image} style={{ flex: 2 }}>
-        <Pressable style={styles.button} onPress={goToLogin}>
-          <Text style={styles.buttonText}>
-            Start writting.... <FontAwesomeIcon icon={faPen} color="#fff" />
+        <View style={{ flex: 1 }}>
+          <Text style={styles.paragraph}>
+            Write about your feelings, share... Others have decided to embark on this journey! How
+            will it be
+            <Text style={styles.underline}> for you ? 🧙‍♂️</Text>
           </Text>
-        </Pressable>
-      </ImageBackground>
-    </View>
+        </View>
+
+        <ImageBackground source={image} style={{ flex: 2 }}>
+          <Pressable style={styles.button} onPress={goToLogin}>
+            <Text style={styles.buttonText}>
+              Start writting.... <FontAwesomeIcon icon={faPen} color="#fff" />
+            </Text>
+          </Pressable>
+        </ImageBackground>
+      </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
