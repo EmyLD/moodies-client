@@ -4,6 +4,8 @@ import { useState } from 'react';
 
 import { useRouter } from 'expo-router';
 import { Alert } from 'react-native';
+import Input from '../components/Input';
+import ViewRow from '../components/layouts/ViewRow';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -46,46 +48,40 @@ const Register = () => {
         <Title textAlign="center" color={'black'}>
           Get an account now ! 🙌
         </Title>
+        <ViewRow>
+          <Input
+            inputPlaceholder={`Username`}
+            inputValue={username}
+            secureTextEntry={false}
+            textContent="username"
+            onChange={(text) => setUsername(text)}
+          />
+        </ViewRow>
         <XStack>
-          <MyInput
-            flex={1}
-            size={`$4`}
-            marginHorizontal={'$4'}
-            placeholder={`Username`}
-            value={username}
-            onChangeText={(text) => setUsername(text)}
+          <Input
+            inputPlaceholder={`Email`}
+            inputValue={email}
+            secureTextEntry={false}
+            textContent="emailAddress"
+            onChange={(text) => setEmail(text)}
           />
         </XStack>
         <XStack>
-          <MyInput
-            flex={1}
-            size={`$4`}
-            marginHorizontal={'$4'}
-            placeholder={`Email`}
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-          />
-        </XStack>
-        <XStack>
-          <MyInput
-            flex={1}
-            size={`$4`}
-            marginHorizontal={'$4'}
-            placeholder={`Password`}
+          <Input
+            inputPlaceholder={`Password`}
+            inputValue={password}
             secureTextEntry={true}
-            value={password}
-            onChangeText={(text) => setPassword(text)}
+            textContent="password"
+            onChange={(text) => setPassword(text)}
           />
         </XStack>
         <XStack>
-          <MyInput
-            flex={1}
-            size={`$4`}
-            marginHorizontal={'$4'}
-            placeholder={`Confirm password`}
+          <Input
+            inputPlaceholder={`Confirm password`}
             secureTextEntry={true}
-            value={confirmPassword}
-            onChangeText={(text) => setConfirmPassword(text)}
+            inputValue={confirmPassword}
+            textContent="password"
+            onChange={(text) => setConfirmPassword(text)}
           />
         </XStack>
         <XStack>

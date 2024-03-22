@@ -3,20 +3,34 @@ import React from 'react';
 
 interface Props {
   inputValue: string;
+  inputPlaceholder: string;
   secureTextEntry: boolean;
-  textContent: 'username' | 'password' | 'emailAddress';
+  textContent: 'username' | 'password' | 'emailAddress' | undefined;
+  onChange: ((param: string) => void);
 }
 
-const Input = ({ inputValue, secureTextEntry, textContent }: Props) => {
+const Input = ({ inputValue, secureTextEntry, textContent, inputPlaceholder, onChange }: Props) => {
   return (
     <TextInput
-      placeholder={inputValue}
+      style={styles.input}
+      placeholder={inputPlaceholder}
       secureTextEntry={secureTextEntry}
       textContentType={textContent}
+      value={inputValue}
+      onChangeText={onChange}
     />
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  input: {
+    fontFamily:'Nunito',
+    backgroundColor: '#3CB17E',
+    borderColor: '#3CB17E',
+    color: '#fff',
+    opacity: 0.4,
+    flex: 1,
+  },
+});
 
 export default Input;
