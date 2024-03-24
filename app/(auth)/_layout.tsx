@@ -27,10 +27,10 @@ const _layout = () => {
       <Stack.Screen
         name="profil"
         options={{
-          headerShown: true,
-          headerTitle: 'profil',
-          headerTintColor: '#fff',
-          headerStyle: { backgroundColor: '#DD6677' },
+          headerShown: false,
+          // headerTitle: 'profil',
+          // headerTintColor: '#fff',
+          // headerStyle: { backgroundColor: '#DD6677' },
         }}
       />
     </Stack>

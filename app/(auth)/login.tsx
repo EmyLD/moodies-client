@@ -3,12 +3,14 @@ import { Button, ButtonText, Text, XStack, YStack } from 'tamagui';
 import { Container, MyInput } from '~/tamagui.config';
 import { Title } from '~/tamagui.config';
 import { useRouter } from 'expo-router';
+import Input from '../components/Input';
 
 const Login = () => {
   // Declare router and get email and password input value
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Declare submit logic : first get data, if ok go to profil page, if not stay on this page
   //TODO : Add validation value
@@ -26,7 +28,7 @@ const Login = () => {
     };
     try {
       const response = await fetch(
-        'https://b34e-91-169-227-245.ngrok-free.app/users/login',
+        'https://e292-91-169-227-245.ngrok-free.app/users/login',
         requestOptions
       );
       const result = await response.json();
@@ -37,10 +39,10 @@ const Login = () => {
           params: { id: result.userId, username: result.username },
         });
       } else {
-        console.log('Authentification failed, try again or ask for a new password');
+        setErrorMessage(result.message);
       }
-    } catch (error) {
-      console.warn(error);
+    } catch (err) {
+      console.warn(err);
     }
   };
 
@@ -61,27 +63,26 @@ const Login = () => {
         </Title>
 
         <XStack>
-          <MyInput
-            flex={1}
-            size={`$4`}
-            marginHorizontal={'$4'}
-            placeholder={`Email`}
-            value={email}
-            onChangeText={(e) => setEmail(e)}
+          <Input
+            inputPlaceholder={`Email`}
+            inputValue={email}
+            secureTextEntry={false}
+            textContent="emailAddress"
+            onChange={(text) => setEmail(text)}
           />
         </XStack>
 
         <XStack>
-          <MyInput
-            flex={1}
-            size={`$4`}
-            marginHorizontal={'$4'}
-            placeholder={`Password`}
+          <Input
+            inputPlaceholder={`Password`}
+            inputValue={password}
             secureTextEntry={true}
-            value={password}
-            onChangeText={(e) => setPassword(e)}
+            textContent="password"
+            onChange={(text) => setPassword(text)}
           />
         </XStack>
+
+        {errorMessage ? <Text>{errorMessage}</Text> : null}
 
         <XStack>
           <Button backgroundColor={'#3CB17E'} onPress={handleSubmit}>

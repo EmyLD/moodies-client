@@ -1,14 +1,17 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { capitalizeFirstLetter } from '../../utils/workOnString';
 const profil = () => {
   const { username, id } = useLocalSearchParams();
-  console.log(id, username);
+  const newUsername = capitalizeFirstLetter(username);
   return (
-    <View>
-      <Text>Coucou {username}</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Heya {newUsername}</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
