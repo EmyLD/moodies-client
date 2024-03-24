@@ -1,11 +1,10 @@
-import { MyInput, Container, Title } from '~/tamagui.config';
+import { Container, Title } from '~/tamagui.config';
 import { YStack, XStack, Button, ButtonText, Text } from 'tamagui';
 import { useState } from 'react';
 
 import { useRouter } from 'expo-router';
 import { Alert } from 'react-native';
 import Input from '../components/Input';
-import ViewRow from '../components/layouts/ViewRow';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -48,7 +47,7 @@ const Register = () => {
         <Title textAlign="center" color={'black'}>
           Get an account now ! 🙌
         </Title>
-        <ViewRow>
+        <XStack>
           <Input
             inputPlaceholder={`Username`}
             inputValue={username}
@@ -56,7 +55,7 @@ const Register = () => {
             textContent="username"
             onChange={(text) => setUsername(text)}
           />
-        </ViewRow>
+        </XStack>
         <XStack>
           <Input
             inputPlaceholder={`Email`}

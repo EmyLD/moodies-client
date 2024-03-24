@@ -4,12 +4,13 @@ import React from 'react';
 interface Props {
   inputValue: string;
   inputPlaceholder: string;
-  secureTextEntry: boolean;
+  secureTextEntry: boolean | undefined;
   textContent: 'username' | 'password' | 'emailAddress' | undefined;
   onChange: ((param: string) => void);
 }
 
 const Input = ({ inputValue, secureTextEntry, textContent, inputPlaceholder, onChange }: Props) => {
+
   return (
     <TextInput
       style={styles.input}
