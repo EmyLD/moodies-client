@@ -34,7 +34,7 @@ const Login = () => {
       const result = await response.json();
 
       if (result.message == 'Valid password') {
-        router.push({
+        router.replace({
           pathname: '/profil',
           params: { id: result.userId, username: result.username },
         });

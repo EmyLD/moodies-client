@@ -15,6 +15,8 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     backgroundColor: '#DD6677',
+    borderRadius: 3,
+    paddingHorizontal: 15,
   },
 });
 

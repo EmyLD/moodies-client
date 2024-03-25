@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const _layout = () => {
+const Diary = () => {
   return (
     <View>
-      <Text>_layout</Text>
+      <Text>diary</Text>
     </View>
   );
 };
 
-export default _layout;
+export default Diary;
