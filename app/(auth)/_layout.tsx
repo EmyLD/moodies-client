@@ -28,9 +28,6 @@ const _layout = () => {
         name="profil"
         options={{
           headerShown: false,
-          // headerTitle: 'profil',
-          // headerTintColor: '#fff',
-          // headerStyle: { backgroundColor: '#DD6677' },
         }}
       />
     </Stack>
