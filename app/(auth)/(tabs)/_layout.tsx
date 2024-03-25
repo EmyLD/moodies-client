@@ -2,8 +2,10 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBook, faUser, faRainbow } from '@fortawesome/free-solid-svg-icons';
+import { useGlobalSearchParams } from 'expo-router';
 
 export default function TabLayout() {
+  const { id } = useGlobalSearchParams();
   return (
     <Tabs
       screenOptions={{
@@ -14,9 +16,15 @@ export default function TabLayout() {
         },
       }}>
       <Tabs.Screen
-        name="(diary)"
+        name="[diary]"
         options={{
           title: 'Diary',
+          href: {
+            pathname: '/[diary]',
+            params: {
+              userId: id,
+            },
+          },
           headerStyle: { backgroundColor: '#DD6677' },
           headerTitle: 'My diary',
           headerTintColor: '#fff',

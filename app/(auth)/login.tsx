@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonText, Text, XStack, YStack } from 'tamagui';
-import { Container, MyInput } from '~/tamagui.config';
+import { Container } from '~/tamagui.config';
 import { Title } from '~/tamagui.config';
 import { useRouter } from 'expo-router';
 import Input from '../components/Input';
