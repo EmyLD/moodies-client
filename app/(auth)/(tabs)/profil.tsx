@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, StyleSheet, Text } from 'react-native';
-import { capitalizeFirstLetter } from 'utils/workOnString';
+import { capitalizeFirstLetter } from 'utils/formats';
 import Title from '~/app/components/Title';
 import EmphEmotion from '~/app/components/EmphEmotion';
 

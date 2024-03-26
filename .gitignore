@@ -13,7 +13,7 @@ web-build/
 expo-env.d.ts
 # tamagui
 .tamagui/
-
+todo.txt
 .idea
 ios
 android

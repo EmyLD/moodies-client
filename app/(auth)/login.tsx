@@ -4,6 +4,7 @@ import { Container } from '~/tamagui.config';
 import { Title } from '~/tamagui.config';
 import { useRouter } from 'expo-router';
 import Input from '../components/Input';
+import { uri } from '~/utils/uri';
 
 const Login = () => {
   // Declare router and get email and password input value
@@ -27,10 +28,7 @@ const Login = () => {
       body: JSON.stringify(data),
     };
     try {
-      const response = await fetch(
-        'https://09ab-91-169-227-245.ngrok-free.app/users/login',
-        requestOptions
-      );
+      const response = await fetch(`${uri}/users/login`, requestOptions);
       const result = await response.json();
 
       if (result.message == 'Valid password') {

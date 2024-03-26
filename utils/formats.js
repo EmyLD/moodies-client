@@ -6,3 +6,13 @@ const capitalizeFirstLetter = (username) => {
 };
 
 export { capitalizeFirstLetter };
+
+// -------------------------------------------
+
+const formatDate = (date) => {
+  return date;
+};
+
+export { formatDate };
+
+// -------------------------------------------
