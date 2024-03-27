@@ -1,18 +1,19 @@
 import { Pressable, Text, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 interface Props {
   btnRedirect: () => void;
   text: string;
 }
 
-const ButtonCta = ({ btnRedirect, text }: Props) => {
+const ButtonCta = ({ btnRedirect, text }: Props): ReactElement => {
   return (
     <Pressable style={styles.button} onPress={btnRedirect}>
       <Text style={styles.buttonText}>{text}</Text>
     </Pressable>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#3CB17E',

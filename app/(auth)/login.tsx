@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Button, ButtonText, Text, XStack, YStack } from 'tamagui';
-import { Container } from '~/tamagui.config';
-import { Title } from '~/tamagui.config';
 import { useRouter } from 'expo-router';
 import Input from '../components/Input';
 import { uri } from '~/utils/uri';
+import { Pressable, SafeAreaView, View } from 'react-native';
+import { Text } from 'react-native-reanimated/lib/typescript/Animated';
 
 const Login = () => {
   // Declare router and get email and password input value
@@ -27,6 +26,7 @@ const Login = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     };
+
     try {
       const response = await fetch(`${uri}/users/login`, requestOptions);
       const result = await response.json();
@@ -54,56 +54,45 @@ const Login = () => {
 
   //-- Display
   return (
-    <Container justifyContent={'space-between'} alignItems={'center'} maxHeight={850}>
-      <YStack flex={1} justifyContent={'center'} gap={'$4'}>
-        <Title textAlign="left" color={'black'}>
-          Hey! Welcome!
-        </Title>
+    <SafeAreaView>
+      <Text>Hey! Welcome!</Text>
 
-        <XStack>
-          <Input
-            inputPlaceholder={`Email`}
-            inputValue={email}
-            secureTextEntry={false}
-            textContent="emailAddress"
-            onChange={(text) => setEmail(text)}
-          />
-        </XStack>
+      <View>
+        <Input
+          inputPlaceholder={`Email`}
+          inputValue={email}
+          secureTextEntry={false}
+          textContent="emailAddress"
+          onChange={(text) => setEmail(text)}
+        />
+      </View>
 
-        <XStack>
-          <Input
-            inputPlaceholder={`Password`}
-            inputValue={password}
-            secureTextEntry={true}
-            textContent="password"
-            onChange={(text) => setPassword(text)}
-          />
-        </XStack>
+      <View>
+        <Input
+          inputPlaceholder={`Password`}
+          inputValue={password}
+          secureTextEntry={true}
+          textContent="password"
+          onChange={(text) => setPassword(text)}
+        />
+      </View>
 
-        {errorMessage ? <Text>{errorMessage}</Text> : null}
+      {errorMessage ? <Text>{errorMessage}</Text> : null}
 
-        <XStack>
-          <Button backgroundColor={'#3CB17E'} onPress={handleSubmit}>
-            <ButtonText style={{ fontFamily: 'Nunito' }}>Log in</ButtonText>
-          </Button>
-        </XStack>
+      <View>
+        <Pressable onPress={handleSubmit}>
+          <Text style={{ fontFamily: 'Nunito' }}>Log in</Text>
+        </Pressable>
+      </View>
 
-        <XStack paddingHorizontal={'$4'} paddingVertical={'$4'}>
-          <Button unstyled onPress={goToRegister}>
-            <Text style={{ fontFamily: 'Nunito' }}>
-              Not an account yet ?{' '}
-              <Text
-                style={{ fontFamily: 'Nunito' }}
-                textDecorationLine={'underline'}
-                width={'100%'}
-                height={'$3'}>
-                Sign Up Here
-              </Text>
-            </Text>
-          </Button>
-        </XStack>
-      </YStack>
-    </Container>
+      <View>
+        <Pressable onPress={goToRegister}>
+          <Text style={{ fontFamily: 'Nunito' }}>
+            Not an account yet ? <Text>Sign Up Here</Text>
+          </Text>
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 };
 

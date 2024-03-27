@@ -1,15 +1,21 @@
 import { TextInput, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-interface Props {
+type Props = {
   inputValue: string;
   inputPlaceholder: string;
   secureTextEntry: boolean | undefined;
   textContent: 'username' | 'password' | 'emailAddress' | undefined;
   onChange: (param: string) => void;
-}
+};
 
-const Input = ({ inputValue, secureTextEntry, textContent, inputPlaceholder, onChange }: Props) => {
+const Input = ({
+  inputValue,
+  secureTextEntry,
+  textContent,
+  inputPlaceholder,
+  onChange,
+}: Props): ReactNode => {
   return (
     <TextInput
       placeholderTextColor="white"
