@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { uri } from '~/utils/uri';
+import { uri } from '~/helpers/uri';
 
 type DatasDiary = {
   diary: string;
